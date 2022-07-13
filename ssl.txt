@@ -1,0 +1,23 @@
+$ sudo apt install openssl  [On Debian/Ubuntu]
+$ sudo yum install openssl  [On CentOS/RHEL]
+$ sudo dnf install openssl  [On Fedora]
+
+Then issue the following command to generate a CSR and the key that will protect your certificate.
+
+$ openssl req -new -newkey rsa:2048 -nodes -keyout example.com.key -out example.com.csr
+
+where:
+
+    req enables the part of OpenSSL that handles certificate requests signing.
+    -newkey rsa:2048 creates a 2048-bit RSA key.
+    -nodes means “don’t encrypt the key”.
+    -keyout example.com.key specifies the filename to write on the created private key.
+    -out example.com.csr specifies the filename to write the CSR to.
+
+Answer correctly, the questions you will be asked. Note that your answers should match information.
+
+After creating your CSR, view the contents of the file using a cat utility, select it and copy it
+
+$ cat example.com.csr
+
+link - https://www.tecmint.com/generate-csr-certificate-signing-request-in-linux/
